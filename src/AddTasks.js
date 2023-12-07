@@ -1,7 +1,6 @@
-import React,{useState} from 'react'
+import React, { useState } from "react";
 
-const AddTasks = ({ allTask, setAllTask,isShow, setIsShow }) => {
-  console.log("I'm Called")
+const AddTasks = ({ allTask, setAllTask, isShow, setIsShow }) => {
   const [addNewTask, setAddNewTask] = useState("");
   const addTask = () => {
     if (addNewTask.trim() === "") {
@@ -11,6 +10,7 @@ const AddTasks = ({ allTask, setAllTask,isShow, setIsShow }) => {
     setAllTask(updatedTasks);
     // Clear the addNewTask state, not allTask.
     setAddNewTask("");
+    setIsShow(!isShow)
   };
   return (
     <div>
@@ -33,25 +33,9 @@ const AddTasks = ({ allTask, setAllTask,isShow, setIsShow }) => {
             </button>
           </div>
         </div>
-       )} 
-      <div>Add New Task</div>
-      <div>
-        <input
-          type="text"
-          className="border-2 border-black"
-          value={addNewTask}
-          onChange={(e) => setAddNewTask(e.target.value)}
-        ></input>
-        <button
-          type="Submit"
-          className="border-2 border-black"
-          onClick={addTask}
-        >
-          Add Task
-        </button>
-      </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default AddTasks
+export default AddTasks;
